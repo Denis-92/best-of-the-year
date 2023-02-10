@@ -15,6 +15,9 @@ import com.corsojava.springboot.model.Song;
 @RequestMapping("/")
 public class TestController {
 	
+	private List<Movie> bestMovies;
+	private List<Song> bestSongs;
+	
 	@GetMapping("")		// gestisce le richieste di tipo GET del tipo /studenti/benvenuto
 	public String benvenuto(Model model) {
 		model.addAttribute("nome","Denis");
@@ -22,17 +25,29 @@ public class TestController {
 	}
 	
 	private List<Movie> getBestMovies() {
-		List<Movie> bestMovies = new ArrayList<>();
+		bestMovies = new ArrayList<>();
 		bestMovies.add(new Movie(1, "The imitation game"));
 		bestMovies.add(new Movie(2, "Il gladiatore"));
 		return bestMovies;
 	}
 	
 	private List<Song> getBestSongs() {
-        List<Song> bestSongs = new ArrayList<>();
+        bestSongs = new ArrayList<>();
         bestSongs.add(new Song(1, "RHCP: Can't stop"));
         bestSongs.add(new Song(2, "RHCP: Snow"));
         return bestSongs;
     }
+	
+	@GetMapping("/movies")
+	public String getBestMoviesList(Model model) {
+		bestMovies = getBestMovies();
+		return "movies";
+	}
+	
+	@GetMapping("/songs")
+	public String getBestSongsList(Model model) {
+		bestSongs = getBestSongs();
+		return "songs";
+	}
 
 }
