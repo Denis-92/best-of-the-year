@@ -8,9 +8,7 @@
 
 <body>
 
-	<h2>
-		test
-	</h2>
+	<h2 th:each="song:${songs}" th:text="${song.getTitolo()}"></h2>
 	
 </body>
 

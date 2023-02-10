@@ -41,12 +41,14 @@ public class TestController {
 	@GetMapping("/movies")
 	public String getBestMoviesList(Model model) {
 		bestMovies = getBestMovies();
+		model.addAttribute("movies", bestMovies);
 		return "movies";
 	}
 	
 	@GetMapping("/songs")
 	public String getBestSongsList(Model model) {
 		bestSongs = getBestSongs();
+		model.addAttribute("songs", bestSongs);
 		return "songs";
 	}
 
