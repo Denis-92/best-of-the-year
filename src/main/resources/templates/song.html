@@ -3,13 +3,15 @@
 
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Titolo test</title>
+	<title>Dettaglio canzone</title>
 	<div th:replace="~{fragments :: head}"></div>
 </head>
 
 <body>
-	<h1 th:text="'Best of the year by ' + ${nome}"></h1>
-	
+
+	<h1 th:text="|Id canzone ${song.getId()}|"></h1>
+	<h2 th:text="|Titolo canzone ${song.getTitolo()}|"></h2>
+
 </body>
 
 </html>

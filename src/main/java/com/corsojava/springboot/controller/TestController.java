@@ -6,17 +6,19 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.corsojava.springboot.model.Movie;
 import com.corsojava.springboot.model.Song;
+import com.corsojava.springboot.model.Songs;
 
 @Controller
 @RequestMapping("/")
 public class TestController {
 	
 	private List<Movie> bestMovies;
-	private List<Song> bestSongs;
+	private Songs bestSongs = new Songs();
 	
 	@GetMapping("")		// gestisce le richieste di tipo GET del tipo /studenti/benvenuto
 	public String benvenuto(Model model) {
@@ -31,13 +33,6 @@ public class TestController {
 		return bestMovies;
 	}
 	
-	private List<Song> getBestSongs() {
-        bestSongs = new ArrayList<>();
-        bestSongs.add(new Song(1, "RHCP: Can't stop"));
-        bestSongs.add(new Song(2, "RHCP: Snow"));
-        return bestSongs;
-    }
-	
 	@GetMapping("/movies")
 	public String getBestMoviesList(Model model) {
 		bestMovies = getBestMovies();
@@ -47,9 +42,14 @@ public class TestController {
 	
 	@GetMapping("/songs")
 	public String getBestSongsList(Model model) {
-		bestSongs = getBestSongs();
-		model.addAttribute("songs", bestSongs);
+		model.addAttribute("songs", bestSongs.getSongs());
 		return "songs";
+	}
+	
+	@GetMapping("/song/{id}")
+	public String dettaglioSong(Model model, @PathVariable("id") String id) {
+		model.addAttribute("song", bestSongs.getSong(Integer.parseInt(id)));
+		return "song";
 	}
 
 }
