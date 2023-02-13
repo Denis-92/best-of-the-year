@@ -14,7 +14,7 @@
 
 	<ul class="list-group">
 		<li th:each="movie:${movies}" th:with="titolo=${movie.getTitolo()}, id=${movie.getId()}" class ="list-group-item">
-			<a th:href="@{'/movie/'+${id}}">[[${titolo}]] [[${id}]]</a>
+			<a th:href="@{'/movie/'+${id}}">[[${titolo}]]</a>
 		</li>
 	</ul>
 	
