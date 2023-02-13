@@ -13,8 +13,8 @@
 	<div th:replace="~{fragments :: menu}"></div>
 	
 	<ul class="list-group">
-		<li th:each="song:${songs}" th:with="titolo=${song.getTitolo()}" class ="list-group-item">
-			<p th:text="${titolo}"></p>
+		<li th:each="song:${songs}" th:with="titolo=${song.getTitolo()}, id=${song.getId()}" class ="list-group-item">
+			<a th:href="@{'/song/'+${id}}">[[${titolo}]] [[${id}]]</a>
 		</li>
 	</ul>
 	
