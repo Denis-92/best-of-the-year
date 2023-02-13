@@ -5,12 +5,17 @@
 	<meta charset="ISO-8859-1">
 	<title>Dettaglio canzone</title>
 	<div th:replace="~{fragments :: head}"></div>
+	<div th:replace="~{fragments :: script}"></div>
 </head>
 
 <body>
+	
+	<div th:replace="~{fragments :: menu}">	</div>
 
 	<h1 th:text="|Id canzone ${song.getId()}|"></h1>
 	<h2 th:text="|Titolo canzone ${song.getTitolo()}|"></h2>
+
+
 
 </body>
 

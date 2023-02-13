@@ -42,7 +42,8 @@ public class TestController {
 	
 	@GetMapping("/songs")
 	public String getBestSongsList(Model model) {
-		model.addAttribute("songs", bestSongs.getSongs());
+		List <Song> songsList = bestSongs.getSongs();
+		model.addAttribute("songs", songsList);
 		return "songs";
 	}
 	

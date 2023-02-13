@@ -4,13 +4,19 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Best Songs Ever!!</title>
+	<div th:replace="~{fragments :: head}"></div>
+	<div th:replace="~{fragments :: script}"></div>
 </head>
 
 <body>
 
-	<h2 th:each="song:${songs}">
-		<p th:text="${song.getTitolo()}"></p>
-	</h2>
+	<div th:replace="~{fragments :: menu}"></div>
+	
+	<ul class="list-group">
+		<li th:each="song:${songs}" th:with="titolo=${song.getTitolo()}" class ="list-group-item">
+			<p th:text="${titolo}"></p>
+		</li>
+	</ul>
 	
 </body>
 
