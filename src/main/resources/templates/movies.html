@@ -12,7 +12,11 @@
 
 	<div th:replace="~{fragments :: menu}"></div>
 
-	<h2 th:each="movie:${movies}" th:text="${movie.getTitolo()}"></h2>
+	<ul class="list-group">
+		<li th:each="movie:${movies}" th:with="titolo=${movie.getTitolo()}, id=${movie.getId()}" class ="list-group-item">
+			<a th:href="@{'/movie/'+${id}}">[[${titolo}]] [[${id}]]</a>
+		</li>
+	</ul>
 	
 </body>
 

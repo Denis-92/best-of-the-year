@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Dettaglio film</title>
+	<div th:replace="~{fragments :: head}"></div>
+	<div th:replace="~{fragments :: script}"></div>
+</head>
+
+<body>
+	
+	<div th:replace="~{fragments :: menu}">	</div>
+
+	<h1 th:text="|Id film ${movie.getId()}|"></h1>
+	<h2 th:text="|Titolo film ${movie.getTitolo()}|"></h2>
+
+
+
+</body>
+
+</html>
