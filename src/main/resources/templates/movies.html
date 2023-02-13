@@ -4,9 +4,13 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Best Movies Ever!</title>
+	<div th:replace="~{fragments :: head}"></div>
+	<div th:replace="~{fragments :: script}"></div>
 </head>
 
 <body>
+
+	<div th:replace="~{fragments :: menu}"></div>
 
 	<h2 th:each="movie:${movies}" th:text="${movie.getTitolo()}"></h2>
 	
