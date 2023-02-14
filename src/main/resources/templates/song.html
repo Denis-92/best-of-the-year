@@ -10,11 +10,12 @@
 
 <body>
 	
-	<div th:replace="~{fragments :: menu}">	</div>
+	<div th:replace="~{fragments :: menu('song')}">	</div>
 
-	<h1 th:text="|Id canzone ${song.getId()}|"></h1>
-	<h2 th:text="|Titolo canzone ${song.getTitolo()}|"></h2>
-
+	<div class="d-flex flex-column align-items-center">
+		<h1 th:text="|Id canzone ${song.getId()}|"></h1>
+		<h2 th:text="|Titolo canzone ${song.getTitolo()}|"></h2>
+	</div>
 
 
 </body>

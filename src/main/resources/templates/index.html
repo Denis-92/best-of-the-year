@@ -10,9 +10,13 @@
 
 <body>
 
-	<div th:replace="~{fragments :: menu}"></div>
+	<div th:replace="~{fragments :: menu('index')}"></div>
 	
-	<h1 th:text="'Best of the year by ' + ${nome}"></h1>
+	<div class="d-flex flex-column align-items-center">
+		<h1 class="w-25" th:text="'Best of the year by ' + ${nome}"></h1>
+		<img class="w-50" alt="best-music" th:src="@{/img/image.jpg}">
+		<h2 class="w-25">lorem ipsum</h2>
+	</div>
 	
 </body>
 

@@ -10,13 +10,16 @@
 
 <body>
 
-	<div th:replace="~{fragments :: menu}"></div>
+	<div th:replace="~{fragments :: menu('movies')}"></div>
 
-	<ul class="list-group">
-		<li th:each="movie:${movies}" th:with="titolo=${movie.getTitolo()}, id=${movie.getId()}" class ="list-group-item">
-			<a th:href="@{'/movie/'+${id}}">[[${titolo}]]</a>
-		</li>
-	</ul>
+	<div class="d-flex flex-column align-items-center">
+		<h2>Best Movies</h2>
+		<ul class="list-group">
+			<li th:each="movie:${movies}" th:with="titolo=${movie.getTitolo()}, id=${movie.getId()}" class ="list-group-item">
+				<a th:href="@{'/movie/'+${id}}">[[${titolo}]]</a>
+			</li>
+		</ul>
+	</div>
 	
 </body>
 

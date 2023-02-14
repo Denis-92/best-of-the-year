@@ -20,15 +20,19 @@
 		<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}" defer></script>
 	</div>
 	
-	<ul th:fragment="menu" class="nav nav-tabs">
-		<li class="nav-item" >
-			<a class="nav-link" th:href="@{/}" th:classAppend="${pagina=='index'}? active : not-active">Home</a>
+	<ul th:fragment="menu(page)" class="nav nav-tabs d-flex align-items-center">
+		<li class="nav-item">
+			<a class="nav-link text-dark pe-5 border-0" th:href="@{/}" th:classAppend="${page=='index'}? 'disabled bg-primary' : active">Best of</a>
 		</li>
-		<li class="nav-item" >
-			<a class="nav-link" th:href="@{/songs}" th:classAppend="${pagina=='songs'}? active : not-active">Best songs</a>
-		</li>
-		<li class="nav-item" >
-			<a class="nav-link" th:href="@{/movies}" th:classAppend="${pagina=='movies'}? active : not-active">Best movies</a>
+		<li class="border-start">
+			<div class="d-flex">
+				<div class="nav-item">
+					<a class="nav-link text-dark m-2" th:href="@{/movies}" th:classAppend="${page=='movies'}? 'disabled bg-primary' : 'border active'">Movies</a>
+				</div>
+				<div class="nav-item">
+					<a class="nav-link text-dark m-2" th:href="@{/songs}" th:classAppend="${page=='songs'}? 'disabled bg-primary' : 'border active'">Songs</a>
+				</div>
+			</div>
 		</li>
 	</ul>
 	
